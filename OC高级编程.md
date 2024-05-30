@@ -16,7 +16,7 @@
 
 上述中的自己可以视为程序员自己
 
-##### $alloc/retain/release/dealloc$ 实现
+##### `alloc/retain/release/dealloc` 实现
 
 
 $alloc$ 使用 $struct$ $obj\underline{}layout$中的 $retained$ 来保存引用计数，并将其写入对象内存头部，然后将对象内存块全部置零后返回指针。
@@ -37,7 +37,7 @@ $dealloc$ 仅用来销毁由 $alloc$ 创建的内存块
 * 对象用内存块的分配无需考虑内存块的头部
 * 引用计数表各项记录中存有内存块的地址，可以从各个记录中追溯到各对象的内存块
 
-##### $autorelease$ 实现
+##### `autorelease` 实现
 
 调用 $autorelease$ 的对象会被放入一个自动释放池内。当对象离开他的作用域时，自动释放池会被释放掉，同时自动释放池内部所有对象也会一一释放。自动释放池之间的结构类似与栈，当某一个对象调用 $autorelease$ 时会被放置到距离他最近的自动释放池内。
 
